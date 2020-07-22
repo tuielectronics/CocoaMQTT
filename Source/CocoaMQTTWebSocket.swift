@@ -411,12 +411,12 @@ extension CocoaMQTTWebSocket.StarscreamConnection: SSLTrustValidator {
         guard let delegate = self.delegate else { return false }
         
         var shouldAccept = false
-        let semaphore = DispatchSemaphore(value: 0)
+        let semephore = DispatchSemaphore(value: 0)
         delegate.connection(self, didReceive: trust) { result in
             shouldAccept = result
-            semaphore.signal()
+            semephore.signal()
         }
-        semaphore.wait()
+        semephore.wait()
         
         return shouldAccept
     }

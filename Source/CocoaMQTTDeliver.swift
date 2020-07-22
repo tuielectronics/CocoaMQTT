@@ -88,7 +88,7 @@ class CocoaMQTTDeliver: NSObject {
                 mqueue.append(f)
             }
             self.storage = storage
-            printInfo("Deliver recover \(frames.count) msgs")
+            printInfo("Deliver recvoer \(frames.count) msgs")
             printDebug("Recover message \(frames)")
         }
         
@@ -200,7 +200,7 @@ extension CocoaMQTTDeliver {
         }
     }
     
-    /// Attempt to redeliver in-flight messages
+    /// Attemp to redliver in-flight messages
     private func redeliver() {
         if isInflightEmpty {
             // Revoke the awaiting timer

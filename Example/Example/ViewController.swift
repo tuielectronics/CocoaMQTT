@@ -235,7 +235,7 @@ extension ViewController {
         }
         
         if fun == "mqttDidDisconnect(_:withError:)" {
-            prettyName = "didDisconnect"
+            prettyName = "didDisconect"
         }
 
         print("[TRACE] [\(prettyName)]: \(message)")
@@ -243,10 +243,10 @@ extension ViewController {
 }
 
 extension Optional {
-    // Unwrap optional value for printing log only
+    // Unwarp optional value for printing log only
     var description: String {
-        if let self = self {
-            return "\(self)"
+        if let warped = self {
+            return "\(warped)"
         }
         return ""
     }
