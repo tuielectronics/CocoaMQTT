@@ -124,15 +124,15 @@ public class CocoaMQTTWebSocket: CocoaMQTTSocketProtocol {
     public func write(_ data: Data, withTimeout timeout: TimeInterval, tag: Int) {
         internalQueue.async {
             let newWrite = WriteItem(tag: tag, timeout: (timeout > 0.0) ? .now() + timeout : .distantFuture)
-            self.scheduledWrites.insert(newWrite)
+            //self.scheduledWrites.insert(newWrite)
             //self.checkScheduledWrites()
             self.connection?.write(data: data) { possibleError in
                 if let error = possibleError {
                     self.closeConnection(withError: error)
                 } else {
-                    guard self.scheduledWrites.remove(newWrite) != nil else { return }
-                    guard let delegate = self.delegate else { return }
-                    delegate.socket(self, didWriteDataWithTag: tag)
+                    // guard self.scheduledWrites.remove(newWrite) != nil else { return }
+                    // guard let delegate = self.delegate else { return }
+                    // delegate.socket(self, didWriteDataWithTag: tag)
                 }
             }
         }
