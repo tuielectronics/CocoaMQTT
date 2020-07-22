@@ -125,7 +125,7 @@ public class CocoaMQTTWebSocket: CocoaMQTTSocketProtocol {
         internalQueue.async {
             let newWrite = WriteItem(tag: tag, timeout: (timeout > 0.0) ? .now() + timeout : .distantFuture)
             self.scheduledWrites.insert(newWrite)
-            self.checkScheduledWrites()
+            //self.checkScheduledWrites()
             self.connection?.write(data: data) { possibleError in
                 if let error = possibleError {
                     self.closeConnection(withError: error)
